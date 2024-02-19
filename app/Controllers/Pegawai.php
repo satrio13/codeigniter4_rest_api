@@ -10,9 +10,10 @@ class Pegawai extends ResourceController
     function __construct()
     {
         $this->model = new PegawaiModel();
+        date_default_timezone_set('Asia/Jakarta');
     }
 
-    public function index()
+    function index()
     {
         $data = [
             'status' => 'success',
@@ -22,7 +23,7 @@ class Pegawai extends ResourceController
         return $this->respond($data, 200);
     }
 
-    public function create()
+    function create()
     {
         $rules = $this->validate([
             'nama' => 'required|max_length[100]',
@@ -74,7 +75,7 @@ class Pegawai extends ResourceController
         }
     }
 
-    public function update($id = null)
+    function update($id = null)
     {
         if(!$this->model->find($id))
         {
@@ -143,7 +144,7 @@ class Pegawai extends ResourceController
         }
     }
 
-    public function delete($id = null)
+    function delete($id = null)
     {
         if(!$this->model->find($id))
         {
@@ -177,7 +178,7 @@ class Pegawai extends ResourceController
         }
     }
 
-    public function show($id = null)
+    function show($id = null)
     {
         if(!$this->model->find($id))
         {
