@@ -13,7 +13,7 @@ class Karyawan extends ResourceController
         date_default_timezone_set('Asia/Jakarta');
     }
 
-    public function index()
+    function index()
     {
         $data = [
             'status' => 'success',
@@ -23,7 +23,7 @@ class Karyawan extends ResourceController
         return $this->respond($data, 200);
     }
 
-    public function create()
+    function create()
     {
         $rules = $this->validate([
             'nama' => 'required|max_length[100]',
@@ -78,7 +78,7 @@ class Karyawan extends ResourceController
         }
     }
 
-    public function update($id = null)
+    function update($id = null)
     {
         $karyawan = $this->model->get_karyawan($id);
         if(!$karyawan)
@@ -149,7 +149,7 @@ class Karyawan extends ResourceController
         }
     }
     
-    public function delete($id = null)
+    function delete($id = null)
     {
         $karyawan = $this->model->get_karyawan($id);
         if(!$karyawan)
@@ -183,7 +183,7 @@ class Karyawan extends ResourceController
         }
     }
 
-    public function show($id = null)
+    function show($id = null)
     {
         $karyawan = $this->model->get_karyawan($id);
         if(!$karyawan)
